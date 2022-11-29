@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+.card {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  border: 1px rgb(137, 110, 110) solid;
+}
+
+.header {
+  height: 30%;
+  background: rgb(137, 110, 110);
+  color: white;
+  text-align: center;
+
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

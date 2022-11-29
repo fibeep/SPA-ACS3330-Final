@@ -94,29 +94,33 @@ function StarWars(){
           <button onClick={(e) => setList(data)}>Save Character</button>
         </div>
       </div>
-      <div>
-        <div>
-          <h1>Character Stats:</h1>
+      <div class="info">
+        <div class="card">
+          <div class="header">
+            <h1>Character Stats:</h1>
+          </div>
+
           <h2>Name: {data.name}</h2>
           <h2>Height: {data.height}</h2>
           <h2>Mass: {data.mass}</h2>
           <h2>Eye Color: {data.eye_color}</h2>
         </div>
-        <div>
-          <h1>Character Homeworld:</h1>
+        <div class="card">
+          <div class="header">
+            <h1>Character Homeworld:</h1>
+          </div>
+
           <h2>Name: {home.name}</h2>
           <h2>Terrain: {home.terrain}</h2>
           <h2>Population: {home.population}</h2>
         </div>
-      </div>
-      <div>
-        <h1>Films Starring:</h1>
-        { films.length > 0 &&
-            films.map(film => (
-                <h2>{film.title}</h2>
-            ))
-        }
-        <button onClick={(e) => console.log(films)}>Click Me</button>
+        <div class="card">
+          <div class="header">
+            <h1>Films Starring:</h1>
+          </div>
+
+          {films.length > 0 && films.map((film) => <h2>{film.title}</h2>)}
+        </div>
       </div>
     </div>
   );

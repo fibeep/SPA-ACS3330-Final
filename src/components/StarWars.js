@@ -11,29 +11,9 @@ function StarWars(){
   const [data, setData] = useState("");
   const [home, setHome] = useState("");
   const [films, setFilms] = useState([])
-  const charList = [];
+  const [list, setList] = useState([])
 
   // ---------------------------- Constants ----------------------
-
-
-
-
-
-  // ---------------------------- Helper Function ---------------
-
-    function setList(char){
-        charList.push(char.name)
-        console.log(charList)
-    }
-
-
-  // ---------------------------- Helper Function ---------------
-
-
-
-
-
-
 
 
   // ----------------------- API CALL ---------------
@@ -70,30 +50,6 @@ function StarWars(){
 
   return (
     <div>
-      <div>
-        <div>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              getCharacter();
-            }}
-          >
-            <input
-              type="number"
-              min="1"
-              max="83"
-              placeholder="Write a Number 1-83"
-              onChange={(e) => setValue(e.target.value)}
-            />
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-        <div>
-          <h2>Character List:</h2>
-          <h3>{charList}</h3>
-          <button onClick={(e) => setList(data)}>Save Character</button>
-        </div>
-      </div>
       <div class="info">
         <div class="card">
           <div class="header">
@@ -118,8 +74,45 @@ function StarWars(){
           <div class="header">
             <h1>Films Starring:</h1>
           </div>
-
           {films.length > 0 && films.map((film) => <h2>{film.title}</h2>)}
+        </div>
+      </div>
+      <div class="info">
+        <div></div>
+        <div class="card2">
+          <h2> Search for Your Character by Entering a Number Below</h2>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              getCharacter();
+            }}
+          >
+            <input
+              class="input-field"
+              type="number"
+              min="1"
+              max="83"
+              placeholder="1"
+              onChange={(e) => setValue(e.target.value)}
+            />
+            <br></br>
+            <button class="action-button" type="submit">
+              Search
+            </button>
+          </form>
+          <button
+            class="action-button"
+            onClick={(e) => {
+              setList([...list, data]);
+            }}
+          >
+            Add To Favorites
+          </button>
+        </div>
+
+        <div class="card2">
+          <h2>Favorite Characters:</h2>
+          {list.length > 0 && list.map((obj) => <h2>{obj.name}</h2>)}
         </div>
       </div>
     </div>
